@@ -22,14 +22,14 @@ mongoose
 app.use(express.json())
 
 //Routes
-app.use("/api/", userRoute)
+app.use("/api/user", userRoute)
 app.use("/api/auth", authRoute)
+app.use("/", (req,res) => {
+    res.send("hi")
+})
 
 
-
-//Routes
-
-//APP IS STARTED
+//APP IS LISTENING
 const port = process.env.PORT;
 app.listen(port || 6000, () => {
     console.log(`Server run at http://localhost: ${port}`);
