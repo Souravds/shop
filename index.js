@@ -4,6 +4,9 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const userRoute = require("./routes/user")
 const authRoute = require("./routes/auth")
+const productRoute = require("./routes/product")
+const cartRoute = require("./routes/cart")
+const orderRoute = require("./routes/order")
 
 //Initialize the ENV File
 dotenv.config()
@@ -22,11 +25,11 @@ mongoose
 app.use(express.json())
 
 //Routes
-app.use("/api/user", userRoute)
+app.use("/api/users", userRoute)
 app.use("/api/auth", authRoute)
-app.use("/", (req,res) => {
-    res.send("hi")
-})
+app.use("/api/products", productRoute)
+app.use("/api/cart", cartRoute)
+app.use("/api/orders", orderRoute)
 
 
 //APP IS LISTENING
